@@ -12,6 +12,8 @@ featured: true
 draft: false
 ---
 
+![Red River Climate Analysis dashboard showing KPIs, monthly temperature with moving average, temperature trend and forecast, seasonal factor by month, and era comparison table](@/assets/images/red_river_dashboard.png)
+
 ## The business question
 
 Red River Ski Area in northern New Mexico has operated through four decades of changing climate. The question a small resort's leadership actually needs answered is narrow and practical: how has warming affected the number of days cold enough to make snow, and what does the trend look like going forward? That single answer shapes decisions about snowmaking equipment investment, seasonal staffing, marketing calendars, and long-term viability.
@@ -35,6 +37,8 @@ I worked the problem in five phases:
 ## Findings
 
 The warming trend is clear, consistent, and statistically significant. Average temperatures rose from **37.65°F in the Early Era (1989–2006) to 39.89°F in the Recent Era (2007–present)** — a 2.24°F increase. The regression model explained 92.95% of temperature variation (R² = 0.9295) with an F-statistic of 472.44 (p < 0.001). The time coefficient — 0.00795°F per month, or **0.095°F per year** — is the quantified warming rate.
+
+![Close-up of Red River temperature trend and forecast chart, showing actual monthly temperatures in blue and predicted values in orange with a clear upward trend from 1989 to 2025](@/assets/images/temperature_trend.png)
 
 Translated into operational terms, the comparison between eras was sharper than expected:
 

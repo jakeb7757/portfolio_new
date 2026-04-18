@@ -20,26 +20,31 @@ If you're planning a new retail location, or allocating promotional budget acros
 
 Three raw datasets from a Walmart case study:
 
-- **Sales:** 421,574 weekly sales records by store and department
-- **Stores:** 45 stores with type, size, and metadata
+- **Sales:** 421,571 weekly sales records by store and department
+- **Stores:** 46 stores with type, size, and metadata
 - **Features:** 8,191 weekly observations of external factors — temperature, fuel price, markdowns, CPI, unemployment, and holiday flags
 
 ## Data quality came first
 
-Before any modeling, I ran a data quality audit using COUNTA, COUNTIF, and range checks across all three datasets. The audit surfaced **24,058 issues** that would have corrupted the model if ignored:
+Before any modeling, I ran a data quality audit using COUNTA, COUNTIF, and range checks across all three datasets. The audit surfaced issues that would have corrupted the model if ignored.
+
+![Walmart data quality audit table showing three datasets (Stores with 46 rows, Sales with 421,571 rows, Features with 8,191 rows) and the issues identified in each: 0, 1,285, and 24,034 respectively](@/assets/images/walmart_data_quality.png)
+
+Breaking down the Sales and Features issues:
 
 - **1,285 negative sales values** (likely returns coded as sales)
-- **1,065 missing date values**
-- **24,034 missing markdown and CPI values** — Features had heavy "NA" in promotional columns because markdowns didn't exist systemwide until 2011
-- Several duplicate store IDs
+- **1,065 missing date values** in the Sales dataset
+- **24,034 missing markdown and CPI values** in Features — heavy "NA" in promotional columns because markdowns didn't exist systemwide until 2011
 
 The cleaning approach varied by issue. Negative sales were excluded as non-comparable to regular weekly revenue. Missing markdown values were imputed to zero (reasonable, since an absent markdown functionally equals no promotion). Missing CPI and unemployment were carried forward from the most recent available observation.
 
-After cleaning and aggregating sales to the store-week level, the analytical dataset held 1,935 store-weeks with complete predictors — enough power for regression without any variable dropping below useful sample size.
+After cleaning and aggregating sales to the store-week level, the analytical dataset held 430 store-weeks with complete predictors — enough power for regression while keeping the model focused on a clean subset of the data.
 
 ## Simple regression: store size alone
 
 The first model used just store size as a predictor:
+
+![Simple regression output table showing R² of 0.6917, Adjusted R² of 0.6909, and Standard Error of $367,655](@/assets/images/regression_single.png)
 
 - **R² = 0.6917** (69.17% of sales variation explained by store size alone)
 - **Coefficient on store size: 8.86** (each additional square foot predicts $8.86 more in weekly sales)
@@ -52,11 +57,9 @@ The practical read: every additional 1,000 square feet predicts roughly **$8,860
 
 The second model added temperature, total markdowns, unemployment, and a holiday indicator:
 
-- **R² = 0.7502** (75.02% of variation explained)
-- **Adjusted R²: 0.7473**
-- **Standard error dropped to $332,456** (from $367,655 — a $35,198 reduction in prediction error)
+![Comparison table of simple vs multiple regression results. Simple: R-squared 0.6917, Adjusted R-squared 0.6909, Standard Error 367,655. Multiple: R-squared 0.7502, Adjusted R-squared 0.7473, Standard Error 332,456. Improvement in R-squared: 0.0586](@/assets/images/multiple_regression.png)
 
-Adding four variables lifted R² by 5.86 percentage points. The improvement isn't dramatic, but it's meaningful: every unexplained variable the model can actually account for tightens forecasts for downstream decisions like inventory planning and staffing.
+Adding four variables lifted R² by 5.86 percentage points and cut standard error by $35,198. The improvement isn't dramatic, but it's meaningful: every unexplained variable the model can actually account for tightens forecasts for downstream decisions like inventory planning and staffing.
 
 ## What the model says
 
