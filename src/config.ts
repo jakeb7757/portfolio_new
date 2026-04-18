@@ -11,7 +11,7 @@ export const SITE = {
   scheduledPostMargin: 15 * 60 * 1000,
   showArchives: true,
   showBackButton: true,
-  editPost: { enabled: false },  // disable "Suggest Changes" link
+  editPost: { enabled: false, url: "", text: "Suggest Changes" },
   dynamicOgImage: true,
   dir: "ltr",
   lang: "en",
