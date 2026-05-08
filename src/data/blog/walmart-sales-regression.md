@@ -8,7 +8,7 @@ tags:
   - data-quality
   - excel
   - statistical-modeling
-featured: true
+featured: false
 draft: false
 ---
 
