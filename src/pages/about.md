@@ -20,12 +20,12 @@ The analytical side of that work was what pulled me back to school. I wanted to 
 
 ## Outside the portfolio
 
-I run a YouTube channel called **The Tech Behind** where I break down how technology works at a level most people don't see day-to-day. It's adjacent to the analytical work but scratches a different itch: explaining technical topics clearly to a non-technical audience. The data analysis case studies on this site demonstrate one skill; the channel demonstrates another one I think matters just as much — translating technical work into language that non-specialists can act on.
+I run a YouTube channel where I break down how technology works at a level most people don't see day-to-day. It's adjacent to the analytical work but scratches a different itch: explaining technical topics clearly to a non-technical audience. The data analysis case studies on this site demonstrate one skill; the channel demonstrates another one I think matters just as much — translating technical work into language that non-specialists can act on.
 
 I also maintain a home lab running Proxmox with several self-hosted services — Vaultwarden, a NAS, a Pi-hole DNS filter, Tailscale for remote access. It started as a way to learn networking and virtualization hands-on during my Network+ studies. It has since become where I try new tools before recommending them to anyone else.
 
 ## Where I am
 
-Based in Amarillo, Texas. Open to data analyst, business intelligence, and systems analyst roles in Texas or remote.
+Based in Amarillo, Texas. Open to data analyst, business intelligence, and systems analyst roles Nationwide.
 
 The fastest way to reach me is [email](mailto:jakeb7757@gmail.com). You can also find me on [LinkedIn](https://www.linkedin.com/in/jake-burleson-33473221), [GitHub](https://github.com/jakeb7757), and [YouTube](https://youtube.com/@jakeburleson).
